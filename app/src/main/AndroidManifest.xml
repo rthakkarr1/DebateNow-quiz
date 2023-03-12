@@ -12,6 +12,24 @@
         android:theme="@style/Theme.DebateNowLoginAndRegister"
         tools:targetApi="31">
         <activity
+            android:name=".score"
+            android:exported="false" />
+        <activity
+            android:name=".Question5"
+            android:exported="false" />
+        <activity
+            android:name=".Question4"
+            android:exported="false" />
+        <activity
+            android:name=".Question3"
+            android:exported="false" />
+        <activity
+            android:name=".Question2"
+            android:exported="false" />
+        <activity
+            android:name=".Question1"
+            android:exported="false" />
+        <activity
             android:name=".loginbutton"
             android:exported="false" />
         <activity

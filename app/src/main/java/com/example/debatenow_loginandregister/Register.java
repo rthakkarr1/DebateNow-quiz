@@ -32,34 +32,23 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent registerIntent = new Intent(Register.this, LoginActivity.class);
-                startActivity(registerIntent);
-
-
                 if (TextUtils.isEmpty(firstName.getText().toString().trim()) || firstName.getText().toString().trim().length() < 3 || firstName.getText().toString().trim().length() > 30) {
                     firstName.setError("Enter a valid first name (3-30 characters)");
-                }
-
-
-                if (TextUtils.isEmpty(familyName.getText().toString().trim())) {
+                } else if (TextUtils.isEmpty(familyName.getText().toString().trim())) {
                     familyName.setError("Enter a valid last name");
-                }
-
-                if (TextUtils.isEmpty(dateOfBirth.getText().toString().trim()) || !dateOfBirth.getText().toString().trim().matches("^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/\\d{4}$")) {
+                } else if (TextUtils.isEmpty(dateOfBirth.getText().toString().trim()) || !dateOfBirth.getText().toString().trim().matches("^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/\\d{4}$")) {
                     dateOfBirth.setError("Enter a valid date of birth. Use MM/DD/YYYY.");
-                }
-
-                if (TextUtils.isEmpty(emailID.getText().toString().trim()) || !Patterns.EMAIL_ADDRESS.matcher(emailID.getText().toString().trim()).matches()) {
+                } else if (TextUtils.isEmpty(emailID.getText().toString().trim()) || !Patterns.EMAIL_ADDRESS.matcher(emailID.getText().toString().trim()).matches()) {
                     emailID.setError("Enter a valid email address");
-                }
-
-                if (TextUtils.isEmpty(password.getText().toString().trim())) {
+                } else if (TextUtils.isEmpty(password.getText().toString().trim())) {
                     password.setError("Enter a valid password");
+                } else {
+                    Intent registerIntent = new Intent(Register.this, LoginActivity.class);
+                    startActivity(registerIntent);
                 }
-
             }
-
         });
+
     }
     @Override
     public String toString() {
